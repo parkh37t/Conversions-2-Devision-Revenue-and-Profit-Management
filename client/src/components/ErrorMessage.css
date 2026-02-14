@@ -1,0 +1,29 @@
+.error-message {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.error-message h3 {
+  color: var(--danger-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.error-message p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.error-message button {
+  margin-top: 1rem;
+}
