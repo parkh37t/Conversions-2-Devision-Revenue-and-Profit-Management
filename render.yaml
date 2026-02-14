@@ -1,0 +1,21 @@
+version: 2
+services:
+  - type: web
+    name: conversions-2-revenue-management
+    env: node
+    region: oregon
+    plan: free
+    branch: claude/sales-target-dashboard-qdPX3
+    buildCommand: npm run install-all && npm run build && node server/database/seed.js
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_PATH
+        value: /opt/render/project/data/revenue.db
+    disk:
+      name: database
+      mountPath: /opt/render/project/data
+      sizeGB: 1
