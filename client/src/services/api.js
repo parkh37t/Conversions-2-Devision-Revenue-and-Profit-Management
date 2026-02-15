@@ -43,6 +43,37 @@ export const dashboardAPI = {
     api.get(`/dashboard/${year}/recent-updates?limit=${limit}`),
 };
 
+// 팀 관련 API
+export const teamsAPI = {
+  getAll: (activeOnly = true) => api.get(`/teams?active=${activeOnly}`),
+  get: (id) => api.get(`/teams/${id}`),
+  create: (data) => api.post('/teams', data),
+  update: (id, data) => api.put(`/teams/${id}`, data),
+  delete: (id) => api.delete(`/teams/${id}`),
+};
+
+// 실적 관리 (팀별) API
+export const performanceAPI = {
+  // 연간 전체 팀별 실적 조회
+  getYearData: (year) => api.get(`/performance/${year}`),
+  // 월간 팀별 실적 상세 조회
+  getMonthData: (year, month) => api.get(`/performance/${year}/${month}`),
+  // 팀별 목표 저장
+  saveTeamTarget: (data) => api.post('/performance/team-targets', data),
+  saveTeamTargetsBulk: (targets) => api.post('/performance/team-targets/bulk', { targets }),
+  // 팀별 실적 저장
+  saveTeamActual: (data) => api.post('/performance/team-actuals', data),
+  saveTeamActualsBulk: (actuals) => api.post('/performance/team-actuals/bulk', { actuals }),
+  // 팀별 예상 저장
+  saveTeamForecast: (data) => api.post('/performance/team-forecasts', data),
+  saveTeamForecastsBulk: (forecasts) => api.post('/performance/team-forecasts/bulk', { forecasts }),
+  // 비고 관리
+  getNotes: (year, month) => api.get(`/performance/notes/${year}/${month}`),
+  addNote: (data) => api.post('/performance/notes', data),
+  updateNote: (id, data) => api.put(`/performance/notes/${id}`, data),
+  deleteNote: (id) => api.delete(`/performance/notes/${id}`),
+};
+
 // 헬스 체크
 export const healthCheck = () => api.get('/health');
 

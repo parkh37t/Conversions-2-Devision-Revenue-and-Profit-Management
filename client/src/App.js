@@ -4,6 +4,8 @@ import Dashboard from './pages/Dashboard';
 import TargetsManagement from './pages/TargetsManagement';
 import ActualsManagement from './pages/ActualsManagement';
 import ForecastManagement from './pages/ForecastManagement';
+import TeamPerformance from './pages/TeamPerformance';
+import MonthlyReport from './pages/MonthlyReport';
 import './App.css';
 
 function App() {
@@ -45,13 +47,23 @@ function App() {
                 </Link>
               </li>
               <li>
+                <Link to="/team-performance" className="nav-link nav-highlight">
+                  팀별 실적
+                </Link>
+              </li>
+              <li>
+                <Link to="/monthly-report" className="nav-link nav-highlight">
+                  월간 보고서
+                </Link>
+              </li>
+              <li>
                 <Link to="/targets" className="nav-link">
                   목표 관리
                 </Link>
               </li>
               <li>
                 <Link to="/actuals" className="nav-link">
-                  실적 관리
+                  실적 입력
                 </Link>
               </li>
               <li>
@@ -67,6 +79,8 @@ function App() {
           <div className="container">
             <Routes>
               <Route path="/" element={<Dashboard year={selectedYear} />} />
+              <Route path="/team-performance" element={<TeamPerformance year={selectedYear} />} />
+              <Route path="/monthly-report" element={<MonthlyReport year={selectedYear} />} />
               <Route path="/targets" element={<TargetsManagement year={selectedYear} />} />
               <Route path="/actuals" element={<ActualsManagement year={selectedYear} />} />
               <Route path="/forecast" element={<ForecastManagement year={selectedYear} />} />

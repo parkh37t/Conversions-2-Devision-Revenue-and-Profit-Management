@@ -9,6 +9,8 @@ const targetsRouter = require('./routes/targets');
 const actualsRouter = require('./routes/actuals');
 const forecastRouter = require('./routes/forecast');
 const dashboardRouter = require('./routes/dashboard');
+const teamsRouter = require('./routes/teams');
+const performanceRouter = require('./routes/performance');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -28,6 +30,8 @@ app.use('/api/targets', targetsRouter);
 app.use('/api/actuals', actualsRouter);
 app.use('/api/forecast', forecastRouter);
 app.use('/api/dashboard', dashboardRouter);
+app.use('/api/teams', teamsRouter);
+app.use('/api/performance', performanceRouter);
 
 // 헬스 체크
 app.get('/api/health', (req, res) => {
