@@ -5,7 +5,7 @@ services:
     env: node
     region: oregon
     plan: free
-    branch: claude/sales-target-dashboard-qdPX3
+    branch: claude/performance-management-program-QnUhe
     buildCommand: npm run install-all && npm run build && node server/database/seed.js
     startCommand: npm start
     envVars:
